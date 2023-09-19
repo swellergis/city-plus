@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
     @GetMapping
     public String sayHello(){
-        return "adduser";
+        return "you're as cold as ice!";
     }
 }
