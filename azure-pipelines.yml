@@ -23,3 +23,15 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
+
+  - deployment: VMDeploy
+    displayName: Web deploy
+    environment:
+      name: atarc-apisrv-env
+      resourceType: VirtualMachine
+      tags: web # Update or remove value to match your tag
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - script: echo my first deployment
