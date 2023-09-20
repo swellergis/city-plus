@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'sweller-app-1'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_AB29453239CF4C37BCAC83D3CEE6C500 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_1CB58AF3120348E28EAF5655E32B9958 }}
           package: '*.jar'
