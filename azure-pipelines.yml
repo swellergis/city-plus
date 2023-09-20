@@ -26,7 +26,7 @@ stages:
   - deployment: VMDeploy
     displayName: Web deploy
     environment:
-      name: atarc-api-env
+      name: atarc-apisrv-env
       resourceType: VirtualMachine
       tags: web # Update or remove value to match your tag
     strategy:
