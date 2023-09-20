@@ -23,7 +23,6 @@ stages:
         TargetFolder: $(Build.ArtifactStagingDirectory)
     - upload: $(Build.ArtifactStagingDirectory)
       artifact: drop
-
   - deployment: VMDeploy
     displayName: Web deploy
     environment:
