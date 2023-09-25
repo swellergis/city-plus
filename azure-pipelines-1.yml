@@ -56,7 +56,7 @@ stages:
     - task: ContrastIntegration@2
       inputs:
         ContrastService: 'contrast ce connection'
-        Application: '9086429b-7ca0-48c6-8944-032342ddca52'
+        Application: 'city-plus'
         CriticalLimit: '0'
         HighLimit: '0'
         MediumLimit: '2'
