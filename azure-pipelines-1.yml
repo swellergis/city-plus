@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
+- none
 
 variables:
 
@@ -24,18 +24,6 @@ stages:
 - stage: Build
   displayName: Build stage
   jobs:
-  - job: verify_application
-    pool: server
-    steps:
-    - task: ContrastIntegration@2
-      inputs:
-        ContrastService: 'contrast ce connection'
-        Application: '9086429b-7ca0-48c6-8944-032342ddca52'
-        CriticalLimit: '0'
-        HighLimit: '0'
-        MediumLimit: '2'
-        LowLimit: '2'
-        NoteLimit: '2'
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
@@ -62,6 +50,18 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
+  - job: verify_application
+    pool: server
+    steps:
+    - task: ContrastIntegration@2
+      inputs:
+        ContrastService: 'contrast ce connection'
+        Application: '9086429b-7ca0-48c6-8944-032342ddca52'
+        CriticalLimit: '0'
+        HighLimit: '0'
+        MediumLimit: '2'
+        LowLimit: '2'
+        NoteLimit: '2'
   - deployment: DeployLinuxWebApp
     displayName: Deploy Linux Web App
     environment: $(environmentName)
