@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- main
+- none
 
 variables:
 
@@ -24,6 +24,18 @@ stages:
 - stage: Build
   displayName: Build stage
   jobs:
+  - job: verify_application
+    pool: server
+    steps:
+    - task: ContrastIntegration@2
+      inputs:
+        ContrastService: 'Contrast'
+        Application: '9b8ed0ab-66de-42fe-a041-812a47eafe58'
+        CriticalLimit: '0'
+        HighLimit: '0'
+        MediumLimit: '2'
+        LowLimit: '2'
+        NoteLimit: '2'
   - job: MavenPackageAndPublishArtifacts
     displayName: Maven Package and Publish Artifacts
     pool:
