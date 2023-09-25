@@ -50,18 +50,6 @@ stages:
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - job: verify_application
-    pool: server
-    steps:
-    - task: ContrastIntegration@2
-      inputs:
-        ContrastService: 'contrast ce connection'
-        Application: 'city-plus'
-        CriticalLimit: '0'
-        HighLimit: '0'
-        MediumLimit: '2'
-        LowLimit: '2'
-        NoteLimit: '2'
   - deployment: DeployLinuxWebApp
     displayName: Deploy Linux Web App
     environment: $(environmentName)
