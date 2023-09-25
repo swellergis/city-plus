@@ -4,7 +4,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-- none
+- main
 
 variables:
 
@@ -29,8 +29,8 @@ stages:
     steps:
     - task: ContrastIntegration@2
       inputs:
-        ContrastService: 'Contrast'
-        Application: '9b8ed0ab-66de-42fe-a041-812a47eafe58'
+        ContrastService: 'contrast ce connection'
+        Application: '9086429b-7ca0-48c6-8944-032342ddca52'
         CriticalLimit: '0'
         HighLimit: '0'
         MediumLimit: '2'
